@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\MockObject\Stub\ReturnReference;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -13,7 +14,15 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::query()->orderBy("created_at","desc")->paginate(10);
+        $projects = Project::query()
+            ->where('uid', Auth::id())
+            ->orderBy("created_at", "desc")
+            ->paginate(10);
+        return view('project.index', ['projects' => $projects]);
+    }
+    public function all()
+    {
+        $projects = Project::query()->orderBy("created_at", "desc")->paginate(10);
         return view('project.index', ['projects' => $projects]);
     }
 
@@ -30,16 +39,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data= $request->validate([
-            'title' => ['required','string'],
-            'start_date'=> ['required','date'],
+        $data = $request->validate([
+            'title' => ['required', 'string'],
+            'start_date' => ['required', 'date'],
             'end_date' => ['required', 'date', 'after:start_date'],
             'phase' => ['required'],
-            'description' => ['required','string'],
-            ]);
-        $data['uid']= $request->user()->uid;
+            'description' => ['required', 'string'],
+        ]);
+        $data['uid'] = $request->user()->uid;
         $project = Project::create($data);
-        return redirect()->route('project.show', $project->pid)->with('message','Project was added');
+        return redirect()->route('project.show', $project->pid)->with('message', 'Project was added');
     }
 
     /**
@@ -47,7 +56,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('project.show',['project'=> $project]);
+        return view('project.show', ['project' => $project]);
     }
 
     /**
@@ -55,7 +64,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('project.edit',['project'=> $project]);
+        return view('project.edit', ['project' => $project]);
     }
 
     /**
@@ -63,16 +72,16 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $data= $request->validate([
-            'title' => ['required','string'],
-            'start_date'=> ['required','date'],
+        $data = $request->validate([
+            'title' => ['required', 'string'],
+            'start_date' => ['required', 'date'],
             'end_date' => ['required', 'date', 'after:start_date'],
             'phase' => ['required'],
-            'description' => ['required','string'],
-            ]);
+            'description' => ['required', 'string'],
+        ]);
 
-        $project -> update($data);
-        return redirect()->route('project.show', $project->pid)->with('message','Project was updated');
+        $project->update($data);
+        return redirect()->route('project.show', $project->pid)->with('message', 'Project was updated');
     }
 
     /**
@@ -80,7 +89,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-       $project->delete();
-       return redirect()->route('project.index')->with('message','Project was deleted');
+        $project->delete();
+        return redirect()->route('project.index')->with('message', 'Project was deleted');
     }
 }
