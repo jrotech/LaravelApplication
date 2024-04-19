@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #333;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.project_container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.new_project_button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.new_project_button:hover {
+    background-color: #005580;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 45%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #1f2937;
+    border-radius: 5px;
+}
+
+.project_body {
+    margin-bottom: 10px;
+}
+
+.project_title_description {
+    display: block;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.project_title {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.project_description {
+    margin: 0;
+}
+
+.project_stage, .project_dates {
+    margin-bottom: 10px;
+}
+
+.project_buttons {
+    display: flex;
+    justify-content: right;
+}
+
+.project_button {
+    padding: 10px 20px;
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.project_button.view {
+    background-color: #008CBA;
+}
+
+.project_button.view:hover {
+    background-color: #005580;
+}
+
+.project_button.edit {
+    background-color: #008CBA;
+}
+
+.project_button.edit:hover {
+    background-color: #005580;
+}
+
+.project_delete_button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.project_delete_button:hover {
+    background-color: #aa2e2e;
+}
+
+.project_container_single_project {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #1f2937;
+    border-radius: 5px;
+}
+
+.project_container_single_project h1 {
+    color: #f0f0f0;
+    font-size: 2em;
+    margin-bottom: 20px;
+
+}
+
+.create_project {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.create_project_title, .create_project_body, .project_phase, .date {
+    padding: 10px;
+    padding-right: 0px;
+    font-size: 1.2em;
+    background-color: #111827;
+    color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+}
+
+.project_create_buttons {
+    display: flex;
+    justify-content: left;
+    
+}
+
+.project_cancel_button {
+    padding: 10px 20px;
+    margin-right: 20px;
+    background-color: #f44336;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.project_cancel_button:hover {
+    background-color: #aa2e2e;
+}
+.create_dates
+{
+    display: flex;
+    padding-top: 20px;
+}
+.create_date
+{
+    margin-right:30px;
+    width:50%
+}
+
+/* show */
+.show_header{
+    display: flex;
+    justify-content: space-between;
+}
+.show_project
+{
+    font-size: x-large;
+}
+.show_project_content
+{
+    display: flex;
+    justify-content: space-between;
+}
+.show_project_body
+{
+    width:40%;
+    text-wrap:balance;
+}
+.show_project_delete_button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: x-large;
+    transition: background-color 0.3s ease;
+}
+
+.show_project_delete_button:hover {
+    background-color: #aa2e2e;
+}
+
+.show_buttons
+{
+    display:flex;
+   
+}
+.show_project_edit_button
+{
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: x-large;
+    transition: background-color 0.3s ease;
+    height: fit-content;
+    margin-right: 20px;
+    text-decoration: none;
+}
+.show_project_edit_button:hover {
+    background-color: #005580;
+}
+
+.success-message {
+    padding: 15px 25px;
+    background-color: rgb(0, 165, 44);
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 30px;;
+  }
