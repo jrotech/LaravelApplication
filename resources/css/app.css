@@ -117,7 +117,8 @@ body {
 
 .project_container_single_project {
     width: 90%;
-    margin: 0 auto;
+    margin-right:70px;
+    margin-left: 70px;
     margin-top: 50px;
     padding: 20px;
     background-color: #1f2937;
@@ -234,7 +235,9 @@ body {
 .show_project_edit_button:hover {
     background-color: #005580;
 }
-
+.show_button{
+    margin-left:70px;
+}
 .success-message {
     padding: 15px 25px;
     background-color: rgb(0, 165, 44);

@@ -11,8 +11,12 @@ class Project extends Model
     protected $primaryKey = 'pid';
 
     public function getRouteKeyName()
-{
-    return 'pid';
-}
-protected $fillable = ['title','start_date','end_date','phase','description','uid'];
+    {
+        return 'pid';
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'uid');
+    }
+    protected $fillable = ['title', 'start_date', 'end_date', 'phase', 'description', 'uid'];
 }

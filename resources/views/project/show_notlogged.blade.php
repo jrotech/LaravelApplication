@@ -6,14 +6,6 @@
 
             <div class="show_header">
                 <h1>{{ $project->title }}</h1>
-                <div class="show_buttons">
-                    <a href="{{route('project.edit',$project)}}" class="show_project_edit_button">Edit</a>
-                    <form action="{{route('project.destroy', $project)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="show_project_delete_button">Delete</button>
-                    </form>
-                </div>
             </div>
 
             <div class="show_project_content">
@@ -41,7 +33,7 @@
         </div>
     </div>
     <div class="my-6 text-2xl show_button">
-        <a href="{{ route('project.index') }}" class="project_button edit">Go Back</a>
+        <a href="{{ route('project.all') }}" class="project_button edit">Go Back</a>
     </div>
 
 </x-app-layout>

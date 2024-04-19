@@ -12,9 +12,10 @@ Route::post('/project', [ProjectController::class, 'store'])->name('project.stor
 Route::get('/project/{project}', [ProjectController::class, 'show'])->name('project.show');
 Route::get('/project/{project}/edit', [ProjectController::class,'edit'])-> name('project.edit');
 Route::put('/project/{project}', [ProjectController::class, 'update'])->name('project.update');
-Route::delete('/project/{project}', [ProjectController::class,'delete'])->name('project.destroy');
+Route::delete('/project/{project}', [ProjectController::class,'destroy'])->name('project.destroy');
 Route::get('/projects/all', [ProjectController::class, 'all'])->name('project.all');
-
+Route::post('/project/search', [ProjectController::class, 'search'])->name('project.search');
+Route::get('/project/notlogged/{project}', [ProjectController::class,'show_notlogged'])->name('project.show_notlogged');
 
 //Route::resource('project', ProjectController::class);
 });

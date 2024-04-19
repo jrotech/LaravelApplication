@@ -1,6 +1,15 @@
 <x-app-layout>
    <div class="project_container">
-      <a href="{{route('project.create')}}" class ="new_project_button">Add Project</a>
+      <div class="flex justify-between">
+         <a href="{{route('project.create')}}" class="new_project_button">Add Project</a>
+         <form action="{{ route('project.search') }}" method="POST" class="mb-4 flex justify-end px-10 h-fit">
+            @csrf
+            <input type="hidden" name="view" value="project.all">
+            <input type="text" name="query" class="form-input mx-10 px-10" placeholder="Search projects...">
+            <button type="submit" class="btn btn-primary">Search</button>
+         </form>
+      </div>
+
       <div class="projects">
          @foreach ($projects as $project)
          <div class="project">
@@ -19,7 +28,7 @@
                <form action="{{route('project.destroy', $project)}}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button class ="project_delete_button">Delete</button>
+                  <button class="project_delete_button">Delete</button>
                </form>
             </div>
          </div>

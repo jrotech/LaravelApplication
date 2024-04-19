@@ -23,7 +23,23 @@ class ProjectController extends Controller
     public function all()
     {
         $projects = Project::query()->orderBy("created_at", "desc")->paginate(10);
-        return view('project.index', ['projects' => $projects]);
+        return view('project.all', ['projects' => $projects]);
+    }
+    public function search(Request $request)
+    {
+        $request->validate([
+            'query' => 'string',
+            'view' => 'in:project.index,project.all']);
+
+        $query = $request->input('query');
+        $view = $request->input('view');
+        $projects = Project::query()
+            ->where('title', 'LIKE', "%{$query}%")
+            ->orWhere('start_date', 'LIKE', "%{$query}%")
+            ->orderBy("created_at", "desc")
+            ->paginate(10);
+
+        return view($view, ['projects' => $projects]);
     }
 
     /**
@@ -57,6 +73,10 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         return view('project.show', ['project' => $project]);
+    }
+    public function show_notlogged(Project $project)
+    {
+        return view('project.show_notlogged', ['project' => $project]);
     }
 
     /**
