@@ -4,7 +4,7 @@
         <form action="{{ route('project.search') }}" method="POST" class="mb-4 flex justify-end px-10 h-fit">
             @csrf
             <input type="hidden" name="view" value="project.all">
-            <input type="text" name="query" class="form-input mx-10 px-10" placeholder="Search projects...">
+            <input type="text" name="query" class="form-input mx-10 px-10 text-gray-800" placeholder="Search projects...">
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
 

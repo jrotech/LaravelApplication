@@ -2,7 +2,7 @@
    <div class="project_container">
       <div class="flex justify-between">
          <a href="{{route('project.create')}}" class="new_project_button">Add Project</a>
-         <form action="{{ route('project.search') }}" method="POST" class="mb-4 flex justify-end px-10 h-fit">
+         <form action="{{ route('project.search') }}" method="POST" class="mb-4 flex justify-end px-10 h-fit text-gray-800">
             @csrf
             <input type="hidden" name="view" value="project.all">
             <input type="text" name="query" class="form-input mx-10 px-10" placeholder="Search projects...">
